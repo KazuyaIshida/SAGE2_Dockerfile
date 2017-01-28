@@ -1,0 +1,112 @@
+{
+	"name": "SAGE2",
+	"version": "2.0.0",
+	"date": "2015-11-02",
+	"private": true,
+	"description": "A cluster-based html viewer used for displaying elements across multiple browser windows",
+	"keywords": [
+		"SAGE",
+		"browser",
+		"collaboration"
+	],
+	"author": "UIC EVL <evl.avatar@gmail.com>",
+	"contributors": [
+		{
+			"name": "Thomas Marrinan",
+			"email": "thomas.j.marrinan@gmail.com"
+		},
+		{
+			"name": "Jillian Aurisano",
+			"email": "jillian.aurisano@gmail.com"
+		},
+		{
+			"name": "Arthur Nishimoto",
+			"email": "arthur.nishimoto@gmail.com"
+		},
+		{
+			"name": "Victor Mateevitsi",
+			"email": "mvictoras@gmail.com"
+		},
+		{
+			"name": "Krishna Bharadwaj",
+			"email": "krishnaknbharadwaj@gmail.com"
+		},
+		{
+			"name": "Dylan Kobayashi",
+			"email": "dylank@hawaii.edu"
+		},
+		{
+			"name": "Luc Renambot",
+			"email": "renambot@gmail.com"
+		}
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://bitbucket.org/sage2/sage2/"
+	},
+	"dependencies": {
+		"color": "latest",
+		"commander": "latest",
+		"decompress-zip": "latest",
+		"fluent-ffmpeg": "latest",
+		"formidable": "latest",
+		"gm": "latest",
+		"imageinfo": "latest",
+		"json5": "latest",
+		"mime": "latest",
+		"node-json-db": "latest",
+		"qr-image": "latest",
+		"rbush": ">=2",
+		"request": "latest",
+		"sprint": "^0.3.1",
+		"twit": "latest",
+		"mv": "latest",
+		"semver": "latest",
+		"fsmonitor": "latest",
+		"cheerio": "latest",
+		"sanitizer": "latest",
+		"sanitize-filename": "latest",
+		"normalizeurl": "latest",
+		"sw-precache": "latest",
+		"debug": "latest",
+		"ytdl-core": "latest",
+		"electron": "latest"
+	},
+	"optionalDependencies": {
+		"websocketio": "latest",
+		"node-demux" : "latest"
+	},
+	"devDependencies": {
+		"grunt": "latest",
+		"grunt-cli": "latest",
+		"grunt-eslint": "latest",
+		"grunt-contrib-yuidoc": "latest",
+		"grunt-contrib-uglify": "latest",
+		"grunt-prompt": "latest",
+		"grunt-mocha-cli": "latest",
+		"nodemon": "latest",
+		"kthxbai": "latest",
+		"mocha": "latest",
+		"mocha-jshint": "latest",
+		"istanbul": "latest",
+		"coveralls": "latest"
+	},
+	"engines": {
+		"node": ">=0.10.x"
+	},
+	"scripts": {
+		"start":   "node server.js -l",
+		"sw":      "node generate-service-worker.js",
+		"monitor": "nodemon -e json,js,html -I -L -i public/uploads -i public/service-worker.js server.js -l",
+		"lint":    "grunt eslint",
+		"doc":     "grunt yuidoc",
+		"mini":    "grunt uglify --verbose",
+		"newapp":  "grunt newapp",
+		"test":    "grunt all",
+		"in":      "node ./install_dependencies.js",
+		"inprod":  "node ./install_dependencies.js --prod",
+		"indev":   "node ./install_dependencies.js --dev",
+		"electron":"electron electron.js -s http://localhost:9292 -d 0"
+	},
+	"license": "SEE LICENSE IN LICENSE.txt"
+}
