@@ -18,7 +18,7 @@ RUN echo "deb http://us.archive.ubuntu.com/ubuntu trusty main universe" >> /etc/
 && apt-get -y install wget nodejs ghostscript libwebp-dev bzip2 devscripts libx264-dev yasm libnss3-tools libimage-exiftool-perl libgs-dev imagemagick libwebp5 g++ make libgraphviz-dev libmagickcore-dev libmagickwand-dev libmagick++-dev \
 && apt-get clean \
 && cd /tmp \
-&& npm install
+&& npm install \
 && git clone https://bitbucket.org/sage2/sage2.git /sage2 \
 && cp -a /tmp/node_modules /sage2 \
 && cd /sage2 \
