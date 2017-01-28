@@ -16,10 +16,11 @@ RUN echo "deb http://us.archive.ubuntu.com/ubuntu trusty main universe" >> /etc/
 && apt-get install -y software-properties-common libavformat-extra-54 libavformat-dev libavcodec-extra-54 libavcodec-dev ffmpeg libavutil-dev git curl libswscale-dev \
 && curl -sL https://deb.nodesource.com/setup_6.x | bash - \
 && apt-get -y install wget nodejs ghostscript libwebp-dev bzip2 devscripts libx264-dev yasm libnss3-tools libimage-exiftool-perl libgs-dev imagemagick libwebp5 g++ make libgraphviz-dev libmagickcore-dev libmagickwand-dev libmagick++-dev \
+&& apt-get clean \
 && cd /tmp \
 && npm install
-ADD sage2.tar.gz /
-RUN cp -a /tmp/node_modules /sage2 \
+&& git clone https://bitbucket.org/sage2/sage2.git /sage2 \
+&& cp -a /tmp/node_modules /sage2 \
 && cd /sage2 \
 && npm run in
 
