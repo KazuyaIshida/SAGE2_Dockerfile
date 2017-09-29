@@ -10,7 +10,7 @@ MAINTAINER ishidakazuya
 RUN yum -y update \
 && rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro \
 && rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-1.el7.nux.noarch.rpm \
-&& yum -y install autoconf automake cmake freetype-devel gcc gcc-c++ git libtool make mercurial nasm pkgconfig zlib-devel perl-devel openssl \
+&& yum -y install autoconf automake cmake freetype-devel gcc gcc-c++ git libtool make mercurial nasm pkgconfig zlib-devel perl-devel \
 && git clone https://github.com/FFmpeg/FFmpeg /root/FFmpeg \
 && cd /root/FFmpeg \
 && ./configure --disable-x86asm --enable-shared \
@@ -50,7 +50,8 @@ RUN yum -y update \
 && rm /root/node-v6.11.3.tar.gz \
 && rm /root/Image-ExifTool-10.61.tar.gz \
 && rm /root/ImageMagick-6.9.9-15.tar.gz \
-&& yum remove -y autoconf automake cmake gcc gcc-c++ git libtool make mercurial perl-devel \
+&& yum -y remove autoconf automake cmake gcc gcc-c++ git libtool make mercurial perl-devel \
+&& yum -y install openssl \
 && yum clean all
 
 # EXPOSE Port 9090 and 9292
