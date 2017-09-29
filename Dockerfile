@@ -7,11 +7,15 @@ FROM centos:latest
 MAINTAINER ishidakazuya
 
 # Install SAGE2 
-RUN rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro \
+RUN yum -y update \
+&& rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro \
 && rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-1.el7.nux.noarch.rpm \
-&& yum -y install autoconf automake cmake freetype-devel gcc gcc-c++ git libtool make mercurial nasm pkgconfig zlib-devel perl-devel \
-&& yum -y update \
-&& yum -y install ffmpeg ffmpeg-devel \
+&& yum -y install autoconf automake cmake freetype-devel gcc gcc-c++ git libtool make mercurial nasm pkgconfig zlib-devel perl-devel openssl \
+&& git clone https://github.com/FFmpeg/FFmpeg /root/FFmpeg \
+&& cd /root/FFmpeg \
+&& ./configure --disable-x86asm --enable-shared \
+&& make -j8 \
+&& make install \
 && cd /root \
 && curl -O http://imagemagick.org/download/ImageMagick-6.9.9-15.tar.gz \
 && tar -xvf ImageMagick-6.9.9-15.tar.gz \
@@ -42,6 +46,7 @@ RUN rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro \
 && rm -rf /root/node-v6.11.3 \
 && rm -rf /root/Image-ExifTool-10.61 \
 && rm -rf /root/ImageMagick-6.9.9-15 \
+&& rm -rf /root/FFmpeg \
 && rm /root/node-v6.11.3.tar.gz \
 && rm /root/Image-ExifTool-10.61.tar.gz \
 && rm /root/ImageMagick-6.9.9-15.tar.gz \
