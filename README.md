@@ -1,6 +1,6 @@
 # SAGE2_Dockerfile
 This Dokerfile creates the Docker image of SAGE2.
 - OS is CentOS (latest)
-- The install directory is in /usr/local/sage2
-- Node.js, FFmpeg, ExifTool and ImageMagick are also included.
+- The install directory is /usr/local/sage2
+- ImageMagick, FFmpeg, ExifTool and Node.js are also included.
 - This image doesn't have Google Chrome.
