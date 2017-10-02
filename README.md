@@ -1,4 +1,4 @@
-# SAGE2_Dockerfile
+# Dockerfile of SAGE2
 This Dokerfile creates the Docker image of SAGE2.
 - OS is CentOS (latest)
 - The install directory is /usr/local/sage2
