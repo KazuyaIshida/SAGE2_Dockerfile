@@ -8,7 +8,7 @@ MAINTAINER ishidakazuya
 
 # Install SAGE2 and dependencies
 RUN yum -y update \
-&& yum -y install autoconf automake cmake freetype-devel gcc gcc-c++ git libtool make mercurial nasm pkgconfig zlib-devel perl-devel \
+&& yum -y install autoconf automake cmake freetype-devel gcc gcc-c++ git libtool make mercurial nasm pkgconfig zlib-devel perl-devel net-tools \
 && git clone https://github.com/FFmpeg/FFmpeg /root/FFmpeg \
 && cd /root/FFmpeg \
 && ./configure --disable-x86asm --enable-shared \
@@ -41,6 +41,7 @@ RUN yum -y update \
 && git clone https://bitbucket.org/sage2/sage2.git /usr/local/sage2 \
 && cd /usr/local/sage2 \
 && npm install \
+&& npm run in \
 && rm -rf /root/node-v6.11.3 \
 && rm -rf /root/Image-ExifTool-10.61 \
 && rm -rf /root/ImageMagick-6.9.9-17 \
@@ -53,8 +54,7 @@ RUN yum -y update \
 && yum clean all
 
 # EXPOSE Port 9090 and 9292
-EXPOSE 9090
-EXPOSE 9292
+EXPOSE 9090 9292
 
 # CMD is /bin/bash
 CMD /bin/bash
