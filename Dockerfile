@@ -15,9 +15,9 @@ RUN yum -y update \
 && make -j8 \
 && make install \
 && cd /root \
-&& curl -O http://imagemagick.org/download/ImageMagick-6.9.9-17.tar.gz \
-&& tar -xvf ImageMagick-6.9.9-17.tar.gz \
-&& cd ImageMagick-6.9.9-17 \
+&& curl -O http://imagemagick.org/download/ImageMagick-6.9.9-18.tar.gz \
+&& tar -xvf ImageMagick-6.9.9-18.tar.gz \
+&& cd ImageMagick-6.9.9-18 \
 && ./configure --with-gslib \
 && make -j8 \
 && make install \
@@ -44,11 +44,11 @@ RUN yum -y update \
 && npm run in \
 && rm -rf /root/node-v6.11.3 \
 && rm -rf /root/Image-ExifTool-10.61 \
-&& rm -rf /root/ImageMagick-6.9.9-17 \
+&& rm -rf /root/ImageMagick-6.9.9-18 \
 && rm -rf /root/FFmpeg \
 && rm /root/node-v6.11.3.tar.gz \
 && rm /root/Image-ExifTool-10.61.tar.gz \
-&& rm /root/ImageMagick-6.9.9-17.tar.gz \
+&& rm /root/ImageMagick-6.9.9-18.tar.gz \
 && yum -y remove autoconf automake cmake gcc gcc-c++ git libtool make mercurial perl-devel \
 && yum -y install openssl \
 && yum clean all
